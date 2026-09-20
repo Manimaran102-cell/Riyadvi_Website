@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #D4AF37;
+  --gold-soft: #E6C862;
+  --ink: #000000;
+  --line: #2a2a2a;
+  color-scheme: dark;
+}
+
+@layer base {
+  html { background: #000; scroll-padding-top: 5.5rem; -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-ink font-sans text-bone antialiased;
+    font-size: 1.0625rem; line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { @apply font-display; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--gold); color: #000; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+  a { text-underline-offset: 4px; }
+  img, svg, canvas { display: block; max-width: 100%; }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@layer components {
+  /* Blueprint registration marks: the site's structural signature. */
+  .reg {
+    --c: rgba(212, 175, 55, 0.75);
+    background-image:
+      linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c)),
+      linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c)),
+      linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c)),
+      linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c));
+    background-size: 14px 1px, 1px 14px, 14px 1px, 1px 14px, 14px 1px, 1px 14px, 14px 1px, 1px 14px;
+    background-position: left top, left top, right top, right top, left bottom, left bottom, right bottom, right bottom;
+    background-repeat: no-repeat;
+  }
+  .hairline { border: 1px solid rgba(212, 175, 55, 0.2); }
+  .glass {
+    background: rgba(18, 18, 18, 0.62);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(212, 175, 55, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(212, 175, 55, 0.07) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 75%);
+  }
+  .metal-text {
+    background: linear-gradient(180deg, #F6E29A 0%, #D4AF37 45%, #8F7018 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .prose-article { @apply text-[1.0625rem] leading-[1.8] text-bone/90; max-width: 68ch; }
+  .prose-article h2 { @apply mt-12 mb-4 text-display-md text-bone; }
+  .prose-article h3 { @apply mt-8 mb-3 text-xl font-semibold text-bone; }
+  .prose-article p { @apply my-5; }
+  .prose-article ul { @apply my-5 space-y-2 pl-5; list-style: none; }
+  .prose-article ul li { position: relative; }
+  .prose-article ul li::before { content: ''; position: absolute; left: -1.1rem; top: .8em; width: 6px; height: 6px; background: var(--gold); border-radius: 1px; transform: rotate(45deg); }
+  .prose-article blockquote { @apply my-8 border-l-2 border-gold pl-6 font-display text-xl text-bone; }
+}
+
+@layer utilities {
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Route entrance (used by app/template.tsx) */
+/* opacity only: a transform on an ancestor would break ScrollTrigger pinning (position: fixed) */
+@keyframes route-in { from { opacity: 0; } to { opacity: 1; } }
+.route-in { animation: route-in .4s ease-out both; }
+
+/* Hero headline: pure-CSS line reveal so it plays before hydration and never delays LCP */
+@keyframes line-up { from { transform: translateY(108%); } to { transform: none; } }
+.line-mask { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.line-mask > span { display: block; animation: line-up 0.9s cubic-bezier(0.2, 0.7, 0.1, 1) both; animation-delay: var(--d, 0s); }
+.fade-in-late { animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0.5s); }
