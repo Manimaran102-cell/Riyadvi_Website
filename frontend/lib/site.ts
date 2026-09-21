@@ -4,11 +4,11 @@ export const site = {
   tagline: 'A Technology & Digital Solutions Partner',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   // Contact details are taken from Riyadvi's public business listings; confirm before launch.
-  phone: '+91 90808 22034',
-  phoneHref: 'tel:+919080822034',
+  phone: '+91 80724 87427',
+  phoneHref: 'tel:+918072487427',
   email: 'info@riyadvisoftwaretechnologies.com',
   address: '17, Aarti Arcade, Dr Radha Krishnan Salai, Krishnapuram, Mylapore, Chennai, Tamil Nadu 600004',
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '919080822034',
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '918072487427',
   calendly: process.env.NEXT_PUBLIC_CALENDLY_URL ?? '',
   mapEmbed: process.env.NEXT_PUBLIC_MAP_EMBED_URL ?? '',
   social: {
