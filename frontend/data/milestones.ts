@@ -5,10 +5,10 @@ import type { Milestone } from '@/types';
  * The middle entries are illustrative and should be confirmed with Riyadvi before launch.
  */
 export const milestones: Milestone[] = [
-  { year: '2021', title: 'Riyadvi is founded in Chennai', body: 'Started with a clear goal: give growing businesses a technology partner that cares about outcomes, not just deliverables.' },
-  { year: '2022', title: 'Web and app delivery finds its rhythm', body: 'A repeatable process for websites, e-commerce and mobile apps, serving clients across India.' },
-  { year: '2023', title: 'Marketing and design join the team', body: 'Digital marketing and UI/UX practices added so strategy, design and growth work as one.' },
-  { year: '2024', title: 'Immersive technology practice', body: 'AR/VR and 3D modelling capabilities launched, with clients in India, Australia and the GCC.' },
+  { year: '2021', title: 'Company Founded', body: 'Launched with an innovative vision and technology solutions aimed at solving complex business challenges. We focused on building a strong foundation for digital transformation, offering bespoke services like website development and digital strategy consulting.' },
+  { year: '2022', title: 'Market Expansion', body: 'Expanded our offerings to include additional services such as mobile app development and digital marketing. This was a key milestone in our mission to provide holistic digital solutions to clients across various industries. By collaborating with renowned brands.' },
+  { year: '2023', title: 'Expansion to International Markets', body: 'Expanded our client base to include markets in Australia, successfully establishing our presence in the APAC region. This phase involved a thorough market analysis, localization of our services, and collaborations with international partners.' },
+  { year: '2024', title: 'Global Recognition', body: 'Received the "Star of Excellence" Award from the National Integrity Cultural Academy, recognizing our contributions to advancing digital solutions and ethical business practices. This accolade highlights the success of our global expansion.'},
   { year: '2025', title: 'Recognised for delivery', body: 'Named a winner at the TechBehemoths 2025 Awards, and over 80 projects delivered to date.' },
 ];
 
