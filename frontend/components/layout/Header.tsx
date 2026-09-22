@@ -86,7 +86,7 @@ export function Header() {
       <AnimatePresence>
         {menu && (
           <motion.div id="mobile-nav" data-lenis-prevent initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-[4.5rem] bottom-0 overflow-y-auto bg-black px-5 pb-10 pt-6 lg:hidden">
+            className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain bg-black px-5 pb-10 pt-6 lg:hidden">
             <nav aria-label="Mobile" className="mx-auto max-w-shell">
               <ul className="divide-y divide-line">
                 {nav.map((item) => (
